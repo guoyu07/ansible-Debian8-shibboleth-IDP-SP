@@ -4,7 +4,7 @@ Shibboleth Ansible provisioning
 
 Playbok Ansible per installare e configurare un setup classico di 
 
-- tomcat7
+- tomcat8
 - apache2
 - mod_shib2
 - mysql
@@ -12,9 +12,7 @@ Playbok Ansible per installare e configurare un setup classico di
 - ShibbolethIdp
 - ShibbolethSP
 
-Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti:
-
-https://github.com/daserzw/IdP3-ansible
+Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti: https://github.com/daserzw/IdP3-ansible
 
 Funzionalità:
 
@@ -114,8 +112,3 @@ Gli utenti creati in slapd sono definiti in
 E' necessario configurare gli hostname in /etc/hosts o utilizzare un nameserver dedicato per accedere al servizio HTTPS
     
     https://sp.testunical.it
-
-Testato su
-
-    Ubuntu/Trusty 32bit
-    Debian Wheezy 7 32bit/64bit (sostituire dipendenza emacs24-nox con emacs23-nox)
