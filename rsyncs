@@ -1,3 +1,5 @@
+# fetches config tree from provisionated servers
+
 rsync -av --delete --recursive --force sp.example.org:/opt/shibboleth-idp example.org/shibboleth-idp
 rsync -av --delete --recursive --force sp.example.org:/etc/apache2 example.org/apache2
 rsync -av --delete --recursive --force sp.example.org:/etc/tomcat7 example.org/tomcat7
