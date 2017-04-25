@@ -43,11 +43,11 @@
 
 - name: Render template directory-config.ldif
   template: 
-    src: roles/slapd/templates/directory-config_nocert.ldif
-    dest: /tmp/directory-config_nocert.ldif
+    src: roles/slapd/templates/directory-config.ldif
+    dest: /tmp/directory-config.ldif
 
 - name: Apply Directory config ldif
-  command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config_nocert.ldif"
+  command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config.ldif"
 
 - name: Clean temporary config ldif
   file:

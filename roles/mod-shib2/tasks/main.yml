@@ -3,9 +3,9 @@
   apt: name=libapache2-mod-shib2 state=absent purge=yes
   when: cleanup is defined
 
-- name: Remove /etc/shibboleth dir
-  file: path=/etc/shibboleth state=absent
-  when: cleanup is defined
+#~ - name: Remove /etc/shibboleth dir
+  #~ file: path=/etc/shibboleth state=absent
+  #~ when: cleanup is defined
 # END CLEANUP
 
 - name: Install libapache2-mod-shib2

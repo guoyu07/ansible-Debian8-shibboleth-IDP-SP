@@ -124,9 +124,10 @@ Troubleshooting
 slapd: (error:80)
 
     restart slapd in debug mode
+    slapd -h ldapi:/// -u openldap -g openldap -d 65 -F /etc/ldap/slapd.d/ -d 65    
     controllare che i file pem non siano vuoti e che i permessi di lettura consentano openldap+r
     per forzare in caso di certificati problematici utilizzare "directory-config_nocert.ldif"
-    slapd -h ldapi:/// -u openldap -g openldap -d 65 -F /etc/ldap/slapd.d/ -d 65
+    la connessione tra shibboleth e idp avviene in locale, in questo setup
 
 
 slapd: ldap_modify: No such object (32): 
@@ -139,7 +140,7 @@ slapd: ldap_modify: No such object (32):
 
     TASK [mod-shib2 : Add IdP Metadata to Shibboleth SP]
     libapache2-mod-shib2 non contiene i file di configurazione in /etc/shibboleth (stranezza apparsa su una jessie 8.0 aggiornata a 8.7). 
-    Verificare la presenza di questi altrimenti cambiare repository in sources.list, purgare e reinstallare 
+    Verificare la presenza di questi altrimenti ripopolare la directory
 
 Test confgurazioni singoli servizi/demoni
 
