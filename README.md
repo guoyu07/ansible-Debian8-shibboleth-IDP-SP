@@ -2,16 +2,14 @@ Shibboleth Ansible provisioning
 ===============================
 
 
-Playbok Ansible per installare e configurare un setup esemplificativo per il funzionamento di
+Playbok Ansible per installare e configurare un setup classico di 
 
-- tomcat7
+- tomcat8
 - slapd
-- ShibbolethIdp
 - apache2
-- mod_shib2 (ShibbolethSP)
+- mod_shib2 (Service provider)
+- shibboleth (Identity provider)
 - mysql
-
-
 
 Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti: https://github.com/daserzw/IdP3-ansible
 
