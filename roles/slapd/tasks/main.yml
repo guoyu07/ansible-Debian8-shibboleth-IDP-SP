@@ -41,18 +41,18 @@
 - name: Install ldap-utils
   apt: name=ldap-utils state=present
 
-- name: Render template directory-config.ldif
+- name: Render template directory-config_nocert.ldif
   template: 
-    src: roles/slapd/templates/directory-config.ldif
-    dest: /tmp/directory-config.ldif
+    src: roles/slapd/templates/directory-config_nocert.ldif
+    dest: /tmp/directory-config_nocert.ldif
 
 - name: Apply Directory config ldif
-  command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config.ldif"
+  command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config_nocert.ldif"
 
 - name: Clean temporary config ldif
   file:
     state: absent
-    path: "tmp/directory-config*.ldif"
+    path: "tmp/directory-config*."
 
 - name: Search Directory for memberof overlay
   shell: "ldapsearch -QLLLY EXTERNAL -H ldapi:/// -b cn=config  olcOverlay=memberof"
@@ -119,6 +119,17 @@
   file:
     state: absent
     path: "/tmp/directory-content.ldif"
+
+- name: Restart slapd
+  service: name=slapd state=restarted enabled=yes
+
+- name: Render template directory-config-tls.ldif
+  template: 
+    src: roles/slapd/templates/directory-config-tls.ldif
+    dest: /tmp/directory-config-tls.ldif
+
+- name: Apply Directory config TLS
+  command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config-tls.ldif"
 
 - name: Restart slapd
   service: name=slapd state=restarted enabled=yes

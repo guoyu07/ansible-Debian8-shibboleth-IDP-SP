@@ -2,7 +2,9 @@ Shibboleth Ansible provisioning
 ===============================
 
 
-Playbok Ansible per installare e configurare un setup esemplificativo di 
+Playbok Ansible per installare e configurare un setup esemplificativo di ShibbolethIdP 3 con un SP in locale per test.
+IdP e SP sono quindi in esecuzione sul medesimo server ma su interfacce di rete differenti.
+I servizi configurati da questo playbook sono:
 
 - tomcat7
 - slapd
@@ -10,8 +12,6 @@ Playbok Ansible per installare e configurare un setup esemplificativo di
 - mod_shib2 (Service provider)
 - shibboleth (Identity provider)
 - mysql
-
-Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti https://github.com/daserzw/IdP3-ansible.
 
 Funzionalità:
 
@@ -76,25 +76,10 @@ Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
     
     ansible-playbook playbook.yml -i hosts -v
 
-Esecuzione di un solo role
-    
-    ansible-playbook playbook.yml -i hosts --tag common
+Se cambi parametri puoi fare un cleanup (sconsigliato in ambienti di produzione)
 
-Esecuzione selettiva, quei roles limitati ai nodi idp
-    
-    ansible-playbook playbook.yml -i hosts -v --tag tomcat7,slapd --limit idp
-    
-Esecuzione selettiva, quei roles limitati a quel target
+    ansible-playbook playbook.yml -i hosts -v --limit idp -e '{ cleanup: true }'
 
-    ansible-playbook playbook.yml -i hosts -v --tag tomcat7,slapd --extra-vars "target=idp"
-
-Purge e reinstallazione di tomcat7
-
-    ansible-playbook playbook.yml -i hosts -v --tag tomcat7 --limit idp -e '{ cleanup: true }'
-
-Setup di Shibboleth Idp3
-    
-    ansible-playbook playbook.yml -i hosts -v --tag shib3idp --limit idp 
 
 Risultato
 ========================
@@ -104,6 +89,8 @@ Risultato
 
 
 ![Alt text](images/2.png)
+
+![Alt text](images/3.png)
 
 
 Note
@@ -121,6 +108,12 @@ Gli utenti creati in slapd sono definiti in
 E' necessario configurare gli hostname in /etc/hosts o utilizzare un nameserver dedicato per accedere al servizio HTTPS
     
     https://sp.testunical.it
+
+Ringraziamenti
+========================
+
+Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti https://github.com/daserzw/IdP3-ansible.
+
 
 Troubleshooting
 ========================
@@ -151,6 +144,25 @@ Test confgurazioni singoli servizi/demoni
     apache2ctl configtest
     shibd -t
     
+
+Altri comandi
+========================
+
+Esecuzione di un solo role
+    
+    ansible-playbook playbook.yml -i hosts --tag common
+
+Esecuzione selettiva, quei roles limitati ai nodi idp
+    
+    ansible-playbook playbook.yml -i hosts -v --tag tomcat7,slapd --limit idp
+    
+Esecuzione selettiva, quei roles limitati a quel target
+
+    ansible-playbook playbook.yml -i hosts -v --tag tomcat7,slapd --extra-vars "target=idp"
+
+Setup di Shibboleth Idp3
+    
+    ansible-playbook playbook.yml -i hosts -v --tag shib3idp --limit idp 
 
 
     
