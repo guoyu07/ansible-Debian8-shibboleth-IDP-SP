@@ -73,7 +73,14 @@ Creazione delle chiavi firmate:
 
 
 
-Esecuzione del setup comune a tutti
+![Alt text](images/1.png)
+![Alt text](images/2.png)
+
+Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
+    
+    ansible-playbook playbook.yml -i hosts -v
+
+Esecuzione di un solo role
     
     ansible-playbook playbook.yml -i hosts --tag common
 
@@ -85,7 +92,7 @@ Esecuzione selettiva, quei roles limitati a quel target
 
     ansible-playbook playbook.yml -i hosts -v --tag tomcat7,slapd --extra-vars "target=idp"
 
-Purge e reinstall di tomcat7
+Purge e reinstallazione di tomcat7
 
     ansible-playbook playbook.yml -i hosts -v --tag tomcat7 --limit idp -e '{ cleanup: true }'
 
@@ -93,13 +100,6 @@ Setup di Shibboleth Idp3
     
     ansible-playbook playbook.yml -i hosts -v --tag shib3idp --limit idp 
 
-Setup di apache2 e mod_shib per configurazione Idp3 e Service Provider generico
-    
-    ansible-playbook playbook.yml -i hosts -v --tag apache2
-
-Esegui tutto, equivalente a pre_t:3 di Davide:
-    
-    ansible-playbook playbook.yml -i hosts -v --limit idp -e '{ cleanup: true }'
 
 Note
 ========================
