@@ -80,6 +80,7 @@ Se cambi parametri puoi fare un cleanup (sconsigliato in ambienti di produzione)
 
     ansible-playbook playbook.yml -i hosts -v --limit idp -e '{ cleanup: true }'
 
+Ricorda di aggiungere gli hostname di idp e sp nel tuo /etc/hosts
 
 Risultato
 ========================
