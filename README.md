@@ -4,7 +4,7 @@ Shibboleth Ansible provisioning
 
 Playbok Ansible per installare e configurare un setup esemplificativo di 
 
-- tomcat8
+- tomcat7
 - slapd
 - apache2
 - mod_shib2 (Service provider)
