@@ -2,7 +2,7 @@ Shibboleth Ansible provisioning
 ===============================
 
 
-Playbok Ansible per installare e configurare un setup classico di 
+Playbok Ansible per installare e configurare un setup esemplificativo di 
 
 - tomcat8
 - slapd
@@ -11,12 +11,12 @@ Playbok Ansible per installare e configurare un setup classico di
 - shibboleth (Identity provider)
 - mysql
 
-Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti: https://github.com/daserzw/IdP3-ansible
+Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti https://github.com/daserzw/IdP3-ansible.
 
 Funzionalità:
 
 - Possibilità di configurare il dominio (non più soltanto example.org)
-- Variabili personalizzabili, template, configurazione dinamizzata
+- Configurazione dinamizzata
 
 Todo
 
