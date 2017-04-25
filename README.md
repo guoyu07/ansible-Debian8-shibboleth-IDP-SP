@@ -1,4 +1,4 @@
-Shibboleth Ansible provisioning
+Shibboleth Ansible Debian jessie orchestration  playbook
 ===============================
 
 
