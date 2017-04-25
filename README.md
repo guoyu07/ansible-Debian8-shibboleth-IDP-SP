@@ -2,7 +2,7 @@ Shibboleth Ansible provisioning
 ===============================
 
 
-Playbok Ansible per installare e configurare un setup esemplificativo di ShibbolethIdP 3 con un SP in locale per test.
+Playbok Ansible per installare e configurare un setup esemplificativo di ShibbolethIdP 3 e Shibboleth SP 2.
 IdP e SP sono quindi in esecuzione sul medesimo server ma su interfacce di rete differenti.
 I servizi configurati da questo playbook sono:
 
