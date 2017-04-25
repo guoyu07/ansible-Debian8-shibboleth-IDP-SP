@@ -72,10 +72,6 @@ Creazione delle chiavi firmate:
     cp keys/sp.$nome_dominio.crt $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-cert.pem
 
 
-
-![Alt text](images/1.png)
-![Alt text](images/2.png)
-
 Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
     
     ansible-playbook playbook.yml -i hosts -v
@@ -99,6 +95,15 @@ Purge e reinstallazione di tomcat7
 Setup di Shibboleth Idp3
     
     ansible-playbook playbook.yml -i hosts -v --tag shib3idp --limit idp 
+
+Risutalto
+========================
+
+
+![Alt text](images/1.png)
+
+
+![Alt text](images/2.png)
 
 
 Note
