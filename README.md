@@ -96,7 +96,7 @@ Setup di Shibboleth Idp3
     
     ansible-playbook playbook.yml -i hosts -v --tag shib3idp --limit idp 
 
-Risutalto
+Risultato
 ========================
 
 
