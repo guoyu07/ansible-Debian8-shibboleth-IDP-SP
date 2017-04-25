@@ -1,5 +1,5 @@
-#~ - name: Add GARR apt sources
-  #~ template: src=roles/common/templates/{{ release }}.sources.list dest=/etc/apt/sources.list
+- name: Add GARR apt sources
+  copy: src=roles/common/files/{{ release }}.sources.list dest=/etc/apt/sources.list
 
 - name: Update apt cache
   apt: update_cache=yes

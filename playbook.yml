@@ -11,8 +11,8 @@
     domain1: it
     domain: "{{ name }}.{{ domain1 }}"
     
-    idp_ip: "10.0.3.32"
-    sp_ip:  "10.0.4.32"
+    idp_ip: "10.0.3.22"
+    sp_ip:  "10.0.4.22"
     
     ldap_basedc: "dc={{ name }},dc={{ domain1 }}"
     ldap_basedn: "ou=people,dc={{ name }},dc={{ domain1 }}"
@@ -36,10 +36,10 @@
     tomcat_admin_pw: password
     tomcat_manager_pw: password
     
-    php_version: ""
-    java_version: openjdk-8-jdk
-    tomcat_version: tomcat8
-    release: lenny
+    php_version: "5"
+    java_version: openjdk-7-jdk
+    tomcat_version: tomcat7
+    release: jessie
     
   roles:
     - { role: common, tags: ["common"] }

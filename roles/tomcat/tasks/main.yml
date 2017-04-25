@@ -10,6 +10,12 @@
   
 # to improve security watch this: https://www.owasp.org/index.php/Securing_tomcat
 
+- name: Remove /etc/tomcat7
+  file: path=/etc/tomcat7 state=absent
+  when: cleanup is defined
+
+# END CLEANUP
+
 - name: Install {{ tomcat_version }}
   apt: name={{ tomcat_version }} state=present
 

@@ -46,13 +46,6 @@
     src: roles/slapd/templates/directory-config_nocert.ldif
     dest: /tmp/directory-config_nocert.ldif
 
-# if something goes wrong (error:80) restart slapd in debug mode
-# slapd -h ldapi:/// -u openldap -g openldap -d 65 -F /etc/ldap/slapd.d/ -d 65
-# controllare che i file pem non siano vuoti e che i permessi di lettura consentano openldap+r
-# per forzare in caso di certificati problematici utilizzare "directory-config_nocert.ldif"
-
-# nel caso di ldap_modify: No such object (32): probabilmente stai tentando di modificare qualcosa
-# che non esiste. Probabilmente il tipo di database se hdb, mdb o altro (dpkg-reconfigure slapd per modificarlo)
 - name: Apply Directory config ldif
   command: "ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/directory-config_nocert.ldif"
 
