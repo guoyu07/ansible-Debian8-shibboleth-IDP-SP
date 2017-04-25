@@ -122,24 +122,21 @@ Troubleshooting
 ========================
 
 slapd: (error:80)
-restart slapd in debug mode
-controllare che i file pem non siano vuoti e che i permessi di lettura consentano openldap+r
-per forzare in caso di certificati problematici utilizzare "directory-config_nocert.ldif"
+    restart slapd in debug mode
+    controllare che i file pem non siano vuoti e che i permessi di lettura consentano openldap+r
+    per forzare in caso di certificati problematici utilizzare "directory-config_nocert.ldif"
     slapd -h ldapi:/// -u openldap -g openldap -d 65 -F /etc/ldap/slapd.d/ -d 65
 
 
 slapd: ldap_modify: No such object (32): 
-probabilmente stai tentando di modificare qualcosa che non esiste
-Probabilmente il tipo di database se hdb, mdb o altro (dpkg-reconfigure slapd per modificarlo).
-Verificare la corrispondenza tra la configurazione di slapd e il file directory-config
+    probabilmente stai tentando di modificare qualcosa che non esiste
+    Probabilmente il tipo di database se hdb, mdb o altro (dpkg-reconfigure slapd per modificarlo).
+    Verificare la corrispondenza tra la configurazione di slapd e il file directory-config
 
-Distribuzione: jessie
-TASK [mod-shib2 : Add IdP Metadata to Shibboleth SP]
 "Request failed: <urlopen error ('_ssl.c:565: The handshake operation timed out',)>"
-    
-Distribuzione: jessie
-libapache2-mod-shib2 non contiene i file di configurazione in /etc/shibboleth (molto strano). 
-Verificare la presenza di questi altrimenti cambiare repository in sources.list, purgare e reinstallare libapache2-mod-shib2
+    TASK [mod-shib2 : Add IdP Metadata to Shibboleth SP]
+    libapache2-mod-shib2 non contiene i file di configurazione in /etc/shibboleth (stranezza apparsa su una jessie 8.0 aggiornata a 8.7). 
+    Verificare la presenza di questi altrimenti cambiare repository in sources.list, purgare e reinstallare 
 
 Test confgurazioni singoli servizi/demoni
     apache2ctl configtest
