@@ -95,6 +95,16 @@ Risultato
 Note
 ========================
 
+La VM bisogna che abbia almeno due interfacce di rete, una per l'idp e un'altra per l'sp. Puoi usare configurazioni Vagrant oppure configurarne una manualmente in virtualbox.
+
+Bisogna inoltre creare un utente, nella VM, che accede in ssh tramite certificati (senza password) e ottenga privilegi di root tramite sudo senza password.
+
+Per copiare i certificati ssh del tuo utente sulla VM puoi seguire seguente esempio:
+
+    ssh-keygen -t rsa
+    ssh-copy-id 10.0.3.32
+
+
 Crea nel tuo DNS o in /etc/hosts gli hostname idp ed sp se sei in testunical
 
     10.0.3.22  idp.testunical.it
