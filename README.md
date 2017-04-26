@@ -41,7 +41,7 @@ Creazione delle chiavi firmate:
     cp -Rp /usr/share/easy-rsa/ .
     cd easy-rsa
 
-    # personalizziamo attributi, lunghezza DH, percorso di salvataggio delle chiavi
+    # personalizziamo attributi, lunghezza DH, percorso di salvataggio delle chiavi, sopratutto data di scadenza di queste
     nano vars
 
     # activate environment
