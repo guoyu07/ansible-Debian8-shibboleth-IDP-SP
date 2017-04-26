@@ -1,9 +1,9 @@
-Shibboleth Ansible Debian jessie orchestration  playbook
+Shibboleth Ansible Debian 8 playbook
 ===============================
 
 
 Playbok Ansible per installare e configurare un setup esemplificativo di ShibbolethIdP 3 e Shibboleth SP 2.
-IdP e SP sono quindi in esecuzione sul medesimo server ma su interfacce di rete differenti.
+IdP e SP sono in esecuzione sul medesimo server ma su interfacce di rete differenti.
 I servizi configurati da questo playbook sono:
 
 - tomcat7
@@ -20,13 +20,12 @@ Funzionalità:
 
 Todo
 
-- Possibilità di generare le CA e chiavi on-the-fly sulla base degli attributi del playbook
 - Scelta tra Apache e Nginx/FastCGI come webserver (per sp)
 - Scelta tra Tomcat7 e Jetty come contenitore servlet (per idp)
 - schema migrations per DB e LDAP
 - logrotate setup per le directory di logging
 
-Per utilizzare questo playbook basta installare ansible rigorosamente in ambiente python2
+Per utilizzare questo playbook basta installare ansible in ambiente python2
 
     pip2 install ansible
 
@@ -76,7 +75,7 @@ Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
     
     ansible-playbook playbook.yml -i hosts -v
 
-Se cambi parametri puoi fare un cleanup (sconsigliato in ambienti di produzione)
+Se cambi parametri puoi fare un cleanup (sconsigliato in ambienti di produzione perchè disinstalla i software)
 
     ansible-playbook playbook.yml -i hosts -v --limit idp -e '{ cleanup: true }'
 
@@ -87,7 +86,6 @@ Risultato
 
 
 ![Alt text](images/1.png)
-
 
 ![Alt text](images/2.png)
 
