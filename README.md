@@ -24,6 +24,7 @@ Todo
 - Scelta tra Tomcat7 e Jetty come contenitore servlet (per idp)
 - schema migrations per DB e LDAP
 - logrotate setup per le directory di logging
+- configurazione slapd per storage contenuti su RDBMS
 
 Per utilizzare questo playbook basta installare ansible in ambiente python2
 
