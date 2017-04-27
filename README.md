@@ -29,9 +29,14 @@ Todo
 - Implementare multiple sources per attributi da RDBMS differenti
 
 Per utilizzare questo playbook basta installare ansible in ambiente python2
-
+    
+    aptitude install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
     pip2 install ansible
 
+Se l'installazione di ansible via pip produce errori sulla configurazione delle dipendenze (pyyaml, pycrypto, libffi) è inutile fare --upgrade perchè questo non influenza le dipendenze, piuttosto bisogna rimuovere queste e reinstallare ansible. Esempio:
+    
+    pip2 uninstall pycrypto
+    pip2 install ansible --upgrade
 
 Comandi di deployment e cleanup
 ===============================
