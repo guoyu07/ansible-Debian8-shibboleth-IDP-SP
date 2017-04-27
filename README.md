@@ -130,24 +130,24 @@ E' necessario configurare gli hostname in /etc/hosts o utilizzare un nameserver 
 Miglioramenti
 ========================
 
-- Velocizzare avvio/riavvio Tomcat8
-  fonte: https://idem.garr.it/documenti/doc_download/489-ita-eng-guida-installazione-shibboleth-idp-v3-2-1-su-ubuntu-linux-16-04
-  pagina 12, capitolo 9.
+Velocizzare avvio/riavvio Tomcat8
+Fonte: https://idem.garr.it/documenti/doc_download/489-ita-eng-guida-installazione-shibboleth-idp-v3-2-1-su-ubuntu-linux-16-04
+pagina 12, capitolo 9.
   
-  copiare l'output di
-	
+Copiare l'output di
+    
     ls /opt/shibboleth-idp/webapp/WEB-INF/lib | awk '{print $1",\\"}'
   
-  a seguito di
-	
+a seguito di
+    
     tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\
-  
-  all'interno del file 
-	
+      
+all'interno del file 
+    
     /etc/tomcat8/catalina.properties
 
-- Disabilitare SAML 1 (stessa fonte del precedente) - questo e le seguenti indicazioni di Marco Malavolti sono state implementate nel playbook con il commit del "27 Apr 2017"
-	
+Disabilitare SAML 1 (stessa fonte del precedente) - questo e le seguenti indicazioni di Marco Malavolti sono state implementate nel playbook con il commit del "27 Apr 2017"
+    
     sed -i 's/<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">/<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">/' /opt/shibboleth-idp/metadata/idp-metadata.xml 
     sed -i 's|<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.testunical.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>||' /opt/shibboleth-idp/metadata/idp-metadata.xml 
     sed -i 's|/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"|/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"|' /opt/shibboleth-idp/metadata/idp-metadata.xml
