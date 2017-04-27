@@ -39,7 +39,7 @@
 
 
 - name: Load table RuoliOrganizzativi
-  shell: mysql -u root --password=password shibboleth < /tmp/insert-ruoliorganizzativi.sql
+  shell: mysql -u root --password={{ mysql_pw }} shibboleth < /tmp/insert-ruoliorganizzativi.sql
   when: ruoli_org.stdout == ""
 
 - name: Clean temporary insert-ruoliorganizzativi.sql
