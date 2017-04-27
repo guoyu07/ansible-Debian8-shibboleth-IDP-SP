@@ -134,11 +134,16 @@ Miglioramenti
   fonte: https://idem.garr.it/documenti/doc_download/489-ita-eng-guida-installazione-shibboleth-idp-v3-2-1-su-ubuntu-linux-16-04
   pagina 12, capitolo 9.
   
-	# copiare l'output di
+  copiare l'output di
+	
 	ls /opt/shibboleth-idp/webapp/WEB-INF/lib | awk '{print $1",\\"}'
-	# a seguito di
+  
+  a seguito di
+	
 	tomcat.util.scan.StandardJarScanFilter.jarsToSkip=\
-	# all'interno del file 
+  
+  all'interno del file 
+	
 	/etc/tomcat8/catalina.properties
 
 - Disabilitare SAML 1 (stessa fonte del precedente) - questo e le seguenti indicazioni di Marco Malavolti sono state implementate nel playbook con il commit del "27 Apr 2017"
