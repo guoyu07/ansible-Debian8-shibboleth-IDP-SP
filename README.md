@@ -25,6 +25,8 @@ Todo
 - schema migrations per DB e LDAP
 - logrotate setup per le directory di logging
 - configurazione slapd per storage contenuti su RDBMS
+- Implementare ottimizzazioni Marco Malavolti
+- Implementare multiple sources per attributi da RDBMS differenti
 
 Per utilizzare questo playbook basta installare ansible in ambiente python2
 
@@ -60,7 +62,7 @@ Creazione delle chiavi firmate:
     # then creates client certificates
     ./build-key idp.example.org
     ./build-key sp.example.org
-
+    
     # adesso nella directory "keys" troviamo le chiavi
     # da spostare in $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio
     # rinominando
@@ -76,7 +78,8 @@ Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
     
     ansible-playbook playbook.yml -i hosts -v
 
-Se cambi parametri puoi fare un cleanup (sconsigliato in ambienti di produzione perchè disinstalla i software)
+Se cambi parametri puoi fare un cleanup. 
+Questo è altamente sconsigliato in ambienti di produzione perchè disinstalla i software e rimuove brutalmente il contenuto delle directory di configurazione.
 
     ansible-playbook playbook.yml -i hosts -v --limit idp -e '{ cleanup: true }'
 
@@ -100,7 +103,7 @@ La VM bisogna che abbia almeno due interfacce di rete, una per l'idp e un'altra 
 
 Bisogna inoltre creare un utente, nella VM, che acceda in ssh tramite certificati (senza password) e ottenga privilegi di root tramite sudo senza password.
 
-Per copiare i certificati ssh del tuo utente sulla VM puoi seguire seguente esempio:
+Per copiare i certificati ssh del tuo utente sulla VM puoi seguire il seguente di esempio:
 
     ssh-keygen -t rsa
     ssh-copy-id 10.0.3.32
@@ -151,6 +154,7 @@ slapd: ldap_modify: No such object (32):
 
 Test confgurazioni singoli servizi/demoni
 
+    xmlwf -e UTF-8 /etc/tomcat8/$nomefile.xml
     apache2ctl configtest
     shibd -t
     
