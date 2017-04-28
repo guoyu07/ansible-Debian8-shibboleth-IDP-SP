@@ -25,7 +25,6 @@ Todo
 - schema migrations per DB e LDAP
 - logrotate setup per le directory di logging
 - configurazione slapd per storage contenuti su RDBMS
-- Implementare ottimizzazioni Marco Malavolti
 - Implementare multiple sources per attributi da RDBMS differenti
 
 Per utilizzare questo playbook basta installare ansible in ambiente python2
