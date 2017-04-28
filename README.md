@@ -129,9 +129,7 @@ E' necessario configurare gli hostname in /etc/hosts o utilizzare un nameserver 
 Miglioramenti
 ========================
 
-Velocizzare avvio/riavvio Tomcat8
-Fonte: https://idem.garr.it/documenti/doc_download/489-ita-eng-guida-installazione-shibboleth-idp-v3-2-1-su-ubuntu-linux-16-04
-pagina 12, capitolo 9.
+Velocizzare avvio/riavvio Tomcat8, fonte: https://idem.garr.it/documenti/doc_download/489-ita-eng-guida-installazione-shibboleth-idp-v3-2-1-su-ubuntu-linux-16-04, pagina 12, capitolo 9.
   
 Copiare l'output di
     
