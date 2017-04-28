@@ -155,7 +155,7 @@ Ringraziamenti
 
 Ispirato da Garr Netvolution 2017 (http://eventi.garr.it/it/ws17) e basato sul lavoro di Davide Vaghetti https://github.com/daserzw/IdP3-ansible.
 
-Un ringraziamento speciale a Marco Malavolti per la redazione delle guide di installazione ufficiali (e per le repository!)
+Un ringraziamento speciale a Marco Malavolti per la redazione delle guide di installazione ufficiali e per le repository (https://github.com/malavolti).
 
 Troubleshooting
 ========================
