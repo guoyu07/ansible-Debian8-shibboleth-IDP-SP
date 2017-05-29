@@ -105,7 +105,7 @@ Note
 
 La VM bisogna che abbia almeno due interfacce di rete, una per l'idp e un'altra per l'sp. Puoi usare configurazioni Vagrant oppure configurarne una manualmente in virtualbox.
 
-Bisogna inoltre creare un utente, nella VM, che acceda in ssh tramite certificati (senza password) e ottenga privilegi di root tramite sudo senza password.
+Bisogna inoltre creare un utente, nella VM, che acceda in ssh tramite certificati (senza password) e ottenga privilegi di root tramite sudo senza password. Oppure, in mancanza di questo accesso privilegiato, si può sempre eseguire il playbook in locale ed eludere la connessione ssh.
 
 Per copiare i certificati ssh del tuo utente sulla VM puoi seguire il seguente di esempio:
 
