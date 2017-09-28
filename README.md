@@ -160,6 +160,12 @@ Un ringraziamento speciale a Marco Malavolti per la redazione delle guide di ins
 Troubleshooting
 ========================
 
+opensaml::FatalProfileException
+    Error from identity provider: 
+    Status: urn:oasis:names:tc:SAML:2.0:status:Responder
+    probabilmente manca la chiave pubblica dell'SP presso l'IDP, oppure le chiavi presentano, localmente, permessi di 
+    lettura errati. L'IDP preleva il certificato dall'SP tramite MetaDati. Se questo errore si presenta e i certificati sono     stati adeguatamente definiti in shibboleth2.xml... Hai ricordato di riavviare shibd? :)
+
 slapd: (error:80)
 
     restart slapd in debug mode
