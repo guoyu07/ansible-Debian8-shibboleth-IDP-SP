@@ -68,14 +68,19 @@ Creazione delle chiavi firmate:
     ./build-key sp.example.org
     
     # adesso nella directory "keys" troviamo le chiavi
-    # da spostare in $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio
-    # rinominando
-    cp keys/ca.crt $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/cacert.pem
-    cp keys/ca.key $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/cakey.pem
-    cp keys/idp.$nome_dominio.crt $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-cert.pem
-    cp keys/idp.$nome_dominio.key $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-key.pem    
-    cp keys/sp.$nome_dominio.key $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-key.pem
-    cp keys/sp.$nome_dominio.crt $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-cert.pem
+    # da convertire in formato pem
+    # e da spostare in $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio
+    
+    # convertire da crt a pem
+    # openssl rsa -in server.key -text > private.pem
+    # openssl x509 -inform PEM -in server.crt > public.pem
+    
+    cp keys/cacert.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/cacert.pem
+    cp keys/cakey.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/cakey.pem
+    cp keys/idp.$nome_dominio-cert.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-cert.pem
+    cp keys/idp.$nome_dominio-key.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-key.pem    
+    cp keys/sp.$nome_dominio-key.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-key.pem
+    cp keys/sp.$nome_dominio-cert.pem $shibboleth-Idp3-ansible/roles/common/files/$nome_dominio/$nome_dominio-cert.pem
 
 
 Edita le variabili nel playbook e il file hosts prima di fare l'esecuzione
